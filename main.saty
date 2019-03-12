@@ -1,0 +1,13 @@
+@require: stdja
+@import: csv
+@import: color
+@import: local
+
+document (|
+  title = {csv読み込みテスト};
+  author = {puripuri2100};
+  show-title = true;
+  show-toc = false;
+|) '<
+  +p{\hoge(csvlist);}
+>

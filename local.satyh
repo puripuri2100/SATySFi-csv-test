@@ -1,0 +1,9 @@
+@import: color
+
+let textcolor ctx (color, it) =
+  let ctx-color = set-text-color color ctx in
+    read-inline ctx-color it
+
+let-inline ctx \hoge csvlist =
+  List.map (textcolor ctx) csvlist
+  |> List.fold-left (++) inline-nil
