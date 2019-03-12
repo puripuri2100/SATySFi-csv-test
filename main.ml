@@ -21,8 +21,8 @@ let () = cat input_file
 let () = cmd_list := List.rev !cmd_list
 
 (*color部分とinline-text部分を抽出*)
-let reg_cmd_color = Str.regexp "\\([a-zA-Z]*\\), [a-zA-Z]*"
-let reg_cmd_it = Str.regexp "[a-zA-Z]*, \\([a-zA-Z]*\\)"
+let reg_cmd_color = Str.regexp "\\([a-zA-Z]*\\).*"
+let reg_cmd_it = Str.regexp ".* \\([a-zA-Z]*\\)"
 (*inline-text部分に中括弧を付ける*)
 let fuga_1 s =
   "(" ^ (Str.replace_first reg_cmd_color "\\1" s) ^ ", " ^
