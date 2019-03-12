@@ -1,12 +1,12 @@
 @import: color
 let csvlist = [
-(red, {hoge});
-(blue, {fuga});
-(red, {hoge});
-(blue, {fuga});
-(red, {hoge});
-(blue, {fuga});
-(black, {hoge});
-(blue, {fuga});
+(red, {hoge});
+(blue, {fuga});
+(red, {hoge});
+(blue, {fuga});
+(red, {hoge});
+(blue, {fuga});
+(black, {hoge});
+(blue, {fuga});
 
 ]

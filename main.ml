@@ -20,17 +20,24 @@ let () = cat input_file
 
 let () = cmd_list := List.rev !cmd_list
 
+
+(*(color, inline-text)ではない形のものを削除する*)
+let reg = Str.regexp "[a-zA-Z]+,[a-zA-Z]+"
+let hoge r s = Str.string_match r s 0
+let cmd_list_2 = List.filter (hoge reg) !cmd_list
+
+
 (*color部分とinline-text部分を抽出*)
 let reg_cmd_color = Str.regexp "\\([a-zA-Z]*\\).*"
-let reg_cmd_it = Str.regexp ".* \\([a-zA-Z]*\\)"
+let reg_cmd_it = Str.regexp ".*,\\([a-zA-Z]*\\)"
 (*inline-text部分に中括弧を付ける*)
 let fuga_1 s =
   "(" ^ (Str.replace_first reg_cmd_color "\\1" s) ^ ", " ^
   (Str.replace_first reg_cmd_it "{\\1}" s) ^ ");"
-let cmd_list_2 = List.map fuga_1 !cmd_list
+let cmd_list_3 = List.map fuga_1 cmd_list_2
 
 
-let message_list = cmd_list_2
+let message_list = cmd_list_3
 
 
 let message_satyh =
